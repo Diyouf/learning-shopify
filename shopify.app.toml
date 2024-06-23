@@ -3,7 +3,7 @@
 client_id = "f82e86348a2c63d1e9c42235abbb68eb"
 name = "learning-purpose-app"
 handle = "learning-purpose-app"
-application_url = "https://lazy-grip-petite-compromise.trycloudflare.com"
+application_url = "https://targets-walks-jets-therapy.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://lazy-grip-petite-compromise.trycloudflare.com/auth/callback",
-  "https://lazy-grip-petite-compromise.trycloudflare.com/auth/shopify/callback",
-  "https://lazy-grip-petite-compromise.trycloudflare.com/api/auth/callback"
+  "https://targets-walks-jets-therapy.trycloudflare.com/auth/callback",
+  "https://targets-walks-jets-therapy.trycloudflare.com/auth/shopify/callback",
+  "https://targets-walks-jets-therapy.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
