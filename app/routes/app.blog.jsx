@@ -9,29 +9,26 @@ import {
 } from "@shopify/polaris";
 import { json } from "@remix-run/node";
 import React from "react";
-import { useActionData, useLoaderData } from "@remix-run/react";
-
-export const loader = async () => {
-  const data = {
-    name: "diyouf",
-    email: "diyouf@gmial.com",
-  };
-  return json(data);
-};
+import { useActionData, useNavigate } from "@remix-run/react";
+import db from "../db.server";
 
 export const action = async ({ request }) => {
   let formData = await request.formData();
   formData = Object.fromEntries(formData);
-  return json(formData);
+  const newData = await db.customerReviewModel.create({ data: formData });
+  return json(newData);
 };
 
 export default function Example() {
-  const loader = useLoaderData();
+  const navigate = useNavigate();
   const actionData = useActionData();
-
-  const [formState, setFormState] = React.useState(loader);
-
-  
+  const [formState, setFormState] = React.useState({
+    productName: "",
+    review: "",
+  });
+  if (actionData) {
+    navigate("/app");
+  }
 
   return (
     <Page fullWidth>
@@ -41,23 +38,23 @@ export default function Example() {
             <Form method="POST">
               <FormLayout>
                 <TextField
-                  name="name"
-                  value={formState.name}
-                  label="Store name"
+                  name="productName"
+                  label="Product name"
+                  value={formState.productName}
                   onChange={(value) => {
-                    setFormState({ ...formState, name: value });
+                    setFormState({ ...formState, productName: value });
                   }}
                   autoComplete="off"
                 />
                 <TextField
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  label="Account email"
+                  name="review"
+                  type="text"
+                  value={formState.review}
+                  label="Review"
                   onChange={(value) => {
-                    setFormState({ ...formState, email: value });
+                    setFormState({ ...formState, review: value });
                   }}
-                  autoComplete="email"
+                  autoComplete="off"
                 />
                 <Button onClick={() => document.querySelector("form").submit()}>
                   Submit
@@ -66,14 +63,6 @@ export default function Example() {
             </Form>
           </LegacyCard>
         </Layout.Section>
-        {actionData && (
-          <Layout.Section>
-            <LegacyCard title="Submitted Data" sectioned>
-              <p><strong>Name:</strong> {actionData.name}</p>
-              <p><strong>Email:</strong> {actionData.email}</p>
-            </LegacyCard>
-          </Layout.Section>
-        )}
       </Layout>
     </Page>
   );

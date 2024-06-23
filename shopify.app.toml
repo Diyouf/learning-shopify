@@ -3,7 +3,7 @@
 client_id = "f82e86348a2c63d1e9c42235abbb68eb"
 name = "learning-purpose-app"
 handle = "learning-purpose-app"
-application_url = "https://targets-walks-jets-therapy.trycloudflare.com"
+application_url = "https://andreas-trade-appeals-optional.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://targets-walks-jets-therapy.trycloudflare.com/auth/callback",
-  "https://targets-walks-jets-therapy.trycloudflare.com/auth/shopify/callback",
-  "https://targets-walks-jets-therapy.trycloudflare.com/api/auth/callback"
+  "https://andreas-trade-appeals-optional.trycloudflare.com/auth/callback",
+  "https://andreas-trade-appeals-optional.trycloudflare.com/auth/shopify/callback",
+  "https://andreas-trade-appeals-optional.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
