@@ -3,7 +3,6 @@ import {
   Page,
   Layout,
   Text,
-  Button,
   BlockStack,
   LegacyCard,
   Grid,
@@ -48,7 +47,7 @@ export default function Index() {
                     key={index}
                     columnSpan={{ xs: 6, sm: 3, md: 3, lg: 6, xl: 6 }}
                   >
-                    <LegacyCard title={review.productName} sectioned>
+                    <LegacyCard  title={review.productName} sectioned>
                       <p>{review.review}</p>
                     </LegacyCard>
                   </Grid.Cell>
